@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({ component: App });
 function App() {
   return (
     <main className={cn(shellContentClass, "flex-1 pb-8 pt-10 sm:pt-14")}>
-      <Card className="rise-in relative overflow-hidden rounded-[2rem] border shadow-md">
+      <Card className="rise-in relative overflow-hidden rounded-[2rem] shadow-md">
         <CardContent className="relative px-6 py-10 sm:px-10 sm:py-14">
           <div className="pointer-events-none absolute -left-20 -top-24 h-56 w-56 rounded-full bg-primary/15 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-muted-foreground/10 blur-3xl" />
