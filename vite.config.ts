@@ -1,5 +1,4 @@
 import { defineConfig } from "vite-plus";
-import { cloudflare } from "@cloudflare/vite-plugin";
 import { devtools } from "@tanstack/devtools-vite";
 
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -11,20 +10,9 @@ const config = defineConfig({
     "*": "vp check --fix",
   },
   lint: { options: { typeAware: true, typeCheck: true } },
-  plugins: [
-    devtools(),
-    tailwindcss(),
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
-    tanstackStart(),
-    viteReact(),
-  ],
+  plugins: [devtools(), tailwindcss(), tanstackStart(), viteReact()],
   run: {
     tasks: {
-      build: {
-        command: "vp build",
-        dependsOn: ["lint"],
-        env: ["NODE_ENV"],
-      },
       deploy: {
         command: "wrangler deploy --env production",
         cache: false,

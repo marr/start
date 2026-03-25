@@ -32,12 +32,12 @@ export default function Header() {
               About
             </Link>
             <a
-              href="https://tanstack.com/start/latest/docs/framework/react/overview"
+              href="https://github.com/marr/start"
               className="nav-link"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
-              Docs
+              GitHub
             </a>
           </div>
         </div>

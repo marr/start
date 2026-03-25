@@ -1,29 +1,44 @@
-Welcome to your new TanStack Start app!
+# TanStack Start starter
+
+This app is built with **[TanStack Start](https://tanstack.com/start)** and **[TanStack Router](https://tanstack.com/router)** for routing and server APIs, **[shadcn/ui](https://ui.shadcn.com/docs)** (Base UI primitives) for components, and **[Vite Plus](https://viteplus.dev)** as the Vite-based dev and build toolchain. Day-to-day tasks use the **`vp`** CLI (for example `vp dev`, `vp build`, `vp test`).
+
+## Links
+
+- **Repository:** [github.com/marr/start](https://github.com/marr/start)
+- **Vite Plus:** [viteplus.dev](https://viteplus.dev) — dev server, build, and test runner used by this template
+- **TanStack:** [Start — docs](https://tanstack.com/start/latest/docs/framework/react/overview) · [Router](https://tanstack.com/router)
+- **shadcn:** [Documentation](https://ui.shadcn.com/docs) · [Create (this preset)](https://ui.shadcn.com/create?command=init&base=base&template=start&preset=b11gxg4yrQ)
 
 # Getting Started
 
-To run this application:
+Install dependencies, then start the dev server:
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+vp dev --port 3000
 ```
 
 # Building For Production
 
-To build this application for production:
+```bash
+vp build
+```
+
+Preview the production build locally:
 
 ```bash
-pnpm build
+vp preview
 ```
 
 ## Testing
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+Tests run through Vite Plus (Vitest under the hood):
 
 ```bash
-pnpm test
+vp test
 ```
+
+After install, `vp config` also runs via the `prepare` script to sync Vite Plus configuration when needed.
 
 ## Styling
 
@@ -36,14 +51,14 @@ If you prefer not to use Tailwind CSS:
 1. Remove the demo pages in `src/routes/demo/`
 2. Replace the Tailwind import in `src/styles.css` with your own styles
 3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `pnpm add @tailwindcss/vite tailwindcss --dev`
+4. Remove the Tailwind packages from your project (for example `npm remove @tailwindcss/vite tailwindcss`).
 
 ## Shadcn
 
 Components follow [this project’s saved preset](https://ui.shadcn.com/create?command=init&base=base&template=start&preset=b11gxg4yrQ) on the shadcn create flow (Base UI + TanStack Start). Add more with:
 
 ```bash
-pnpm dlx shadcn@latest add button
+npx shadcn@latest add button
 ```
 
 See also the main [shadcn/ui docs](https://ui.shadcn.com/docs).
