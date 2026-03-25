@@ -1,4 +1,5 @@
 import { defineConfig } from "vite-plus";
+import { cloudflare } from "@cloudflare/vite-plugin";
 import { devtools } from "@tanstack/devtools-vite";
 
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -6,14 +7,20 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 const config = defineConfig({
-  test: {
-    include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
-  },
   staged: {
     "*": "vp check --fix",
   },
   lint: { options: { typeAware: true, typeCheck: true } },
-  plugins: [devtools(), tailwindcss(), tanstackStart(), viteReact()],
+  test: {
+    include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  },
+  plugins: [
+    devtools(),
+    tailwindcss(),
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
+    tanstackStart(),
+    viteReact(),
+  ],
   run: {
     tasks: {
       deploy: {
