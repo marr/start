@@ -15,7 +15,7 @@ import { cn } from "#/lib/utils";
 export function NotFoundPage(_props: NotFoundRouteProps) {
   return (
     <main className={cn(shellContentClass, "flex-1 py-10 sm:py-12")}>
-      <Card className="island-shell mx-auto max-w-lg border-0 bg-transparent ring-1 ring-border">
+      <Card className="mx-auto max-w-lg shadow-sm">
         <CardHeader>
           <CardTitle className="text-2xl">Page not found</CardTitle>
           <CardDescription>

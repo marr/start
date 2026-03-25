@@ -1,6 +1,14 @@
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ComputerIcon, Moon01Icon, Sun01Icon } from "@hugeicons/core-free-icons";
 import { useEffect, useState } from "react";
 
 type ThemeMode = "light" | "dark" | "auto";
+
+const themeIcons = {
+  light: Sun01Icon,
+  dark: Moon01Icon,
+  auto: ComputerIcon,
+} as const;
 
 function getInitialMode(): ThemeMode {
   if (typeof window === "undefined") {
@@ -72,9 +80,15 @@ export default function ThemeToggle() {
       onClick={toggleMode}
       aria-label={label}
       title={label}
-      className="rounded-full border border-border bg-card px-3 py-1.5 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5"
+      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-foreground shadow-sm transition hover:-translate-y-0.5 hover:bg-accent"
     >
-      {mode === "auto" ? "Auto" : mode === "dark" ? "Dark" : "Light"}
+      <HugeiconsIcon
+        icon={themeIcons[mode]}
+        size={20}
+        color="currentColor"
+        strokeWidth={1.5}
+        aria-hidden
+      />
     </button>
   );
 }

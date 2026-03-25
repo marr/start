@@ -154,29 +154,7 @@ pre code {
   font-family: var(--font-heading);
 }
 
-.island-shell {
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--card-foreground);
-  box-shadow:
-    0 1px 0 color-mix(in oklab, var(--foreground) 5%, transparent) inset,
-    0 18px 40px color-mix(in oklab, var(--foreground) 5%, transparent);
-}
-
-.feature-card {
-  background: var(--card);
-  box-shadow:
-    0 1px 0 color-mix(in oklab, var(--foreground) 4%, transparent) inset,
-    0 12px 28px color-mix(in oklab, var(--foreground) 4%, transparent);
-}
-
-.feature-card:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in oklab, var(--primary) 28%, var(--border));
-}
-
-button,
-.island-shell {
+button {
   transition:
     background-color 180ms ease,
     color 180ms ease,

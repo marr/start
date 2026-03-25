@@ -23,42 +23,44 @@ export const Route = createFileRoute("/")({ component: App });
 function App() {
   return (
     <main className={cn(shellContentClass, "flex-1 pb-8 pt-10 sm:pt-14")}>
-      <section className="island-shell rise-in relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-14">
-        <div className="pointer-events-none absolute -left-20 -top-24 h-56 w-56 rounded-full bg-primary/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-muted-foreground/10 blur-3xl" />
-        <p className="mb-3 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-          TanStack Start Base Template
-        </p>
-        <h1 className="display-title mb-5 max-w-3xl text-4xl leading-[1.02] font-bold tracking-tight text-foreground sm:text-6xl">
-          Start simple, ship quickly.
-        </h1>
-        <p className="mb-8 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          This base starter intentionally keeps things light: two routes, clean structure, and the
-          essentials you need to build from scratch.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <Link
-            to="/about"
-            className={cn(
-              buttonVariants({ variant: "default" }),
-              "rounded-full px-5 py-2.5 no-underline transition hover:-translate-y-0.5",
-            )}
-          >
-            About This Starter
-          </Link>
-          <a
-            href="https://tanstack.com/router"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              buttonVariants({ variant: "outline" }),
-              "rounded-full px-5 py-2.5 no-underline transition hover:-translate-y-0.5",
-            )}
-          >
-            Router Guide
-          </a>
-        </div>
-      </section>
+      <Card className="rise-in relative overflow-hidden rounded-[2rem] border shadow-md">
+        <CardContent className="relative px-6 py-10 sm:px-10 sm:py-14">
+          <div className="pointer-events-none absolute -left-20 -top-24 h-56 w-56 rounded-full bg-primary/15 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-muted-foreground/10 blur-3xl" />
+          <p className="mb-3 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+            TanStack Start Base Template
+          </p>
+          <h1 className="display-title mb-5 max-w-3xl text-4xl leading-[1.02] font-bold tracking-tight text-foreground sm:text-6xl">
+            Start simple, ship quickly.
+          </h1>
+          <p className="mb-8 max-w-2xl text-base text-muted-foreground sm:text-lg">
+            This base starter intentionally keeps things light: two routes, clean structure, and the
+            essentials you need to build from scratch.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/about"
+              className={cn(
+                buttonVariants({ variant: "default" }),
+                "rounded-full px-5 py-2.5 no-underline transition hover:-translate-y-0.5",
+              )}
+            >
+              About This Starter
+            </Link>
+            <a
+              href="https://tanstack.com/router"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "rounded-full px-5 py-2.5 no-underline transition hover:-translate-y-0.5",
+              )}
+            >
+              Router Guide
+            </a>
+          </div>
+        </CardContent>
+      </Card>
 
       <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
@@ -67,14 +69,16 @@ function App() {
           ["Streaming by Default", "Ship progressively rendered responses for faster experiences."],
           ["Tailwind Native", "Design quickly with utility-first styling and reusable tokens."],
         ].map(([title, desc], index) => (
-          <article
+          <Card
             key={title}
-            className="island-shell feature-card rise-in rounded-2xl p-5"
+            className="rise-in rounded-2xl shadow-sm transition hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-md"
             style={{ animationDelay: `${index * 90 + 80}ms` }}
           >
-            <h2 className="mb-2 text-base font-semibold text-foreground">{title}</h2>
-            <p className="m-0 text-sm text-muted-foreground">{desc}</p>
-          </article>
+            <CardContent className="p-5">
+              <h2 className="mb-2 text-base font-semibold text-foreground">{title}</h2>
+              <p className="m-0 text-sm text-muted-foreground">{desc}</p>
+            </CardContent>
+          </Card>
         ))}
       </section>
 
@@ -86,7 +90,7 @@ function App() {
           Component examples
         </h2>
         <div className="grid gap-6 lg:grid-cols-2">
-          <Card className="island-shell rise-in border-0 bg-transparent ring-1 ring-border">
+          <Card className="rise-in shadow-sm">
             <CardHeader>
               <div className="flex flex-wrap items-center gap-2">
                 <CardTitle>Card + badges</CardTitle>
@@ -100,7 +104,7 @@ function App() {
                   href={shadcnCreatePresetUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-primary underline-offset-4 hover:underline"
+                  className="text-muted-foreground underline underline-offset-4"
                 >
                   this project’s shadcn preset
                 </a>{" "}
@@ -168,24 +172,26 @@ function App() {
         </div>
       </section>
 
-      <section className="island-shell mt-8 rounded-2xl p-6">
-        <p className="mb-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-          Quick Start
-        </p>
-        <ul className="m-0 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
-          <li>
-            Edit <code>src/routes/index.tsx</code> to customize the home page.
-          </li>
-          <li>
-            Update <code>src/components/Header.tsx</code> and <code>src/components/Footer.tsx</code>{" "}
-            for brand links.
-          </li>
-          <li>
-            Add routes in <code>src/routes</code> and tweak visual tokens in{" "}
-            <code>src/styles.css</code>.
-          </li>
-        </ul>
-      </section>
+      <Card className="mt-8 shadow-sm">
+        <CardContent className="p-6">
+          <p className="mb-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+            Quick Start
+          </p>
+          <ul className="m-0 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+            <li>
+              Edit <code>src/routes/index.tsx</code> to customize the home page.
+            </li>
+            <li>
+              Update <code>src/components/Header.tsx</code> and{" "}
+              <code>src/components/Footer.tsx</code> for brand links.
+            </li>
+            <li>
+              Add routes in <code>src/routes</code> and tweak visual tokens in{" "}
+              <code>src/styles.css</code>.
+            </li>
+          </ul>
+        </CardContent>
+      </Card>
     </main>
   );
 }
