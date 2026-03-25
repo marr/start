@@ -40,11 +40,13 @@ If you prefer not to use Tailwind CSS:
 
 ## Shadcn
 
-Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
+Components follow [this project’s saved preset](https://ui.shadcn.com/create?command=init&base=base&template=start&preset=b11gxg4yrQ) on the shadcn create flow (Base UI + TanStack Start). Add more with:
 
 ```bash
 pnpm dlx shadcn@latest add button
 ```
+
+See also the main [shadcn/ui docs](https://ui.shadcn.com/docs).
 
 ## Routing
 
